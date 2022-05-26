@@ -1,0 +1,23 @@
+<div *ngIf="modal" class="fixed h-full py-[10vh] top-0 w-full bg-[#FFFFFF99]">
+  <div
+    class="h-[80vh] flex justify-evenly flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-neutral-500"
+  >
+    <div class="w-full h-14 flex justify-end">
+      <button
+        (click)="cerrarModal()"
+        class="text-xl bg-stone-600 border-lg rounded-lg mr-12 px-6"
+      >
+        Close
+      </button>
+    </div>
+    <h2 class="text-6xl text-white self-center">Factura No: {{ id }}</h2>
+    <div class="w-full text-center h-20 self-end">
+      <button
+        (click)="crearFactura()"
+        class="text-xl bg-stone-100 border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4 px-6"
+      >
+        Crear
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div
+  class="flex justify-evenly flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-neutral-500"
+>
+  <div *ngFor="let factura of facturas">
+    <button
+      (click)="modalDetalles(factura.id)"
+      class="w-72 bg-neutral-200 my-4"
+    >
+      <h3>Factura No: {{ factura.id }}</h3>
+      <h4>Cantidad de Productos: {{ factura.productos.length }}</h4>
+    </button>
+  </div>
+
+  <div class="w-full text-center">
+    <button
+      (click)="modalCrear()"
+      class="text-xl bg-stone-100 border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4"
+    >
+      Nueva factura
+    </button>
+  </div>
+</div>
+<app-crear [modal]="modal" (close)="cerrarModalCrear($event)"></app-crear>
+<app-detalles
+  [factura]="factura"
+  (closeDetalles)="cerrarModalDetalles($event)"
+></app-detalles>

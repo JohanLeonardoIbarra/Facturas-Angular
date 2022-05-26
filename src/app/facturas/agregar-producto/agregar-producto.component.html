@@ -1,0 +1,43 @@
+<div *ngIf="modal" class="fixed h-full py-[10vh] top-0 w-full bg-[#FFFFFF99]">
+  <div
+    class="h-[80vh] flex justify-evenly flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-neutral-500"
+  >
+    <div class="w-full h-14 flex justify-end">
+      <button
+        (click)="cerrarModal()"
+        class="text-xl bg-stone-600 border-lg rounded-lg mr-12 px-6"
+      >
+        Close
+      </button>
+    </div>
+    <div class="w-full text-center h-20 self-start">
+      <form
+        class="flex justify-center flex-wrap"
+        (ngSubmit)="agregarProducto()"
+      >
+        <input
+          class="w-4/6 my-2"
+          type="text"
+          placeholder="Nombre del Producto"
+          [(ngModel)]="nuevo.nombre"
+          name="nombre"
+          required
+        />
+        <input
+          class="w-4/6 my-2"
+          type="number"
+          placeholder="Cantidad"
+          [(ngModel)]="nuevo.cantidad"
+          name="cantidad"
+          required
+        />
+        <button
+          class="w-3/6 text-xl bg-stone-100 border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4 px-6"
+          type="submit"
+        >
+          Agregar Producto
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
