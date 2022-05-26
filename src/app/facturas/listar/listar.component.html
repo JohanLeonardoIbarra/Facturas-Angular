@@ -1,20 +1,24 @@
 <div
-  class="flex justify-evenly flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-neutral-500"
+  class="flex justify-evenly flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-azul_o"
 >
   <div *ngFor="let factura of facturas">
     <button
       (click)="modalDetalles(factura.id)"
-      class="w-72 bg-neutral-200 my-4"
+      class="w-72 h-24 bg-azul_c my-4 text-left px-6 hover:border-b-2 {{
+        factura.productos.length > 0 ? 'bg-[#55ff5570]' : ''
+      }}"
     >
-      <h3>Factura No: {{ factura.id }}</h3>
-      <h4>Cantidad de Productos: {{ factura.productos.length }}</h4>
+      <h3 class="text-xl"><strong>Factura No:</strong> {{ factura.id }}</h3>
+      <h4 class="text-xl">
+        <strong>Cantidad de Productos:</strong> {{ factura.productos.length }}
+      </h4>
     </button>
   </div>
 
   <div class="w-full text-center">
     <button
       (click)="modalCrear()"
-      class="text-xl bg-stone-100 border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4"
+      class="text-xl hover:bg-hover bg-azul_c border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4"
     >
       Nueva factura
     </button>

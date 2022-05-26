@@ -26,7 +26,7 @@ export class FacturasService {
 
   agregarProducto(id: number, producto: Producto): void {
     const factura: Factura | undefined = this._facturas.find(
-      (x) => (x.id = id)
+      (x) => x.id === id
     );
     if (factura) {
       if (!factura.productos.map((x) => x.nombre).includes(producto.nombre)) {

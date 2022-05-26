@@ -1,37 +1,35 @@
-<div
-  *ngIf="factura.id != 0"
-  class="fixed h-full py-[10vh] top-0 w-full bg-[#FFFFFF99]"
->
+<div *ngIf="factura.id != 0" class="fixed h-full py-[10vh] top-0 w-full bg-nt">
   <div
-    class="h-[80vh] flex justify-center flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-neutral-500"
+    class="h-[80vh] flex justify-center flex-wrap py-[5vh] mx-4 sm:mx-8 lg:mx-[5rem] xl:mx-[12.5rem] bg-azul_o"
   >
     <div class="w-full h-14 flex justify-end">
       <button
         (click)="cerrarDetalles()"
-        class="text-xl bg-stone-600 border-lg rounded-lg mr-12 px-6"
+        class="text-xl bg-azul_c hover:bg-hover border-lg rounded-lg mr-12 px-6"
       >
         Close
       </button>
     </div>
-    <h2 class="w-full text-center text-4xl text-white">
+    <h2 class="w-full text-center text-5xl text-blanco">
       Factura No: {{ factura.id }}
     </h2>
-    <div class="w-3/6 h-3/6 bg-stone-100">
-      <h3 class="text-4xl">Productos:</h3>
+    <div class="w-3/6 h-3/6 bg-azul_c">
       <hr />
-      <ol *ngFor="let producto of factura.productos">
-        <div>
-          <li class="text-xl text-right">
-            Nombre: {{ producto.nombre }} Cantidad: {{ producto.cantidad }}
-          </li>
-          <hr />
-        </div>
-      </ol>
+      <table class="table table-auto w-full mt-3 text-2xl">
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+        </tr>
+        <tr class="text-center" *ngFor="let producto of factura.productos">
+          <td>{{ producto.nombre | titlecase }}</td>
+          <td>{{ producto.cantidad }}</td>
+        </tr>
+      </table>
     </div>
     <div class="w-full text-center">
       <button
         (click)="modalProducto()"
-        class="text-xl bg-stone-100 border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4"
+        class="text-xl bg-azul_c hover:bg-hover border-b-8 border-r-8 rounded-bl-lg rounded-tr-lg m-4"
       >
         Agregar Producto
       </button>
